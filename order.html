@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="lang-th">시계의 세계와계절의 색โลกของนาฬิกาและสีของฤดู</title>
+    <title class="lang-ko">시계의 세계와 계절의 색</title>
+    <title class="lang-en">The World of Time and Colors of the Seasons</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="web-container">
+        <header class="navbar">
+            <nav class="nav-links">
+                <a href="index.html" class="active">
+                    <span class="lang-th">หน้าแรก</span>
+                    <span class="lang-ko">홈</span>
+                    <span class="lang-en">HOME</span>
+                </a>
+
+                <a href="order.html">
+                    <span class="lang-th">สั่งซื้อ</span>
+                    <span class="lang-ko">주문하기</span>
+                    <span class="lang-en">ORDER</span>
+                </a>
+                <a href="contact.html">
+                    <span class="lang-th">ติดต่อ</span>
+                    <span class="lang-ko">문의하기</span>
+                    <span class="lang-en">CONTACT</span>
+                </a>
+                <a href="track.html">
+                    <span class="lang-th">สถานะ</span>
+                    <span class="lang-ko">조회</span>
+                    <span class="lang-en">TRACK</span>
+                </a>
+            </nav>
+            <div style="display: flex; align-items: center; gap: 20px;">
+                
+                <div class="season-toggle" style="position: static; display: flex; align-items: center;">
+                    <button id="themeToggle" class="theme-toggle-btn">
+                        <i id="themeIcon" class="fa-solid fa-moon"></i>
+                    </button>
+                </div>
+
+                <div class="lang-selector">
+                    <button class="lang-btn">
+                        <i class="fa-solid fa-globe"></i>
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </button>
+                    <div class="lang-dropdown">
+                        <div class="lang-item lang-option" data-lang="th"><span class="flag">🇹🇭</span> THAI</div>
+                        <div class="lang-item lang-option" data-lang="ko"><span class="flag">🇰🇷</span> KOREAN</div>
+                        <div class="lang-item lang-option" data-lang="en"><span class="flag">🇬🇧</span> ENGLISH</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-card">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 5px;">
+                <span class="lang-th">สั่งซื้อสินค้า</span>
+                <span class="lang-ko">주문하기</span>
+                <span class="lang-en">PLACE AN ORDER</span>
+            </h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 30px;">
+                <span class="lang-th">กรอกข้อมูลรายละเอียดเพื่อสั่งซื้อหนังสือ</span>
+                <span class="lang-ko">책을 주문하려면 상세 정보를 입력ร세요.</span>
+                <span class="lang-en">Fill out the details below to order your book.</span>
+            </p>
+            
+            <div class="order-grid">
+                <form class="order-form" id="orderForm">
+                    <div class="form-group">
+                        <label for="name">
+                            <span class="lang-th">ชื่อ-นามสกุลผู้รับ *</span>
+                            <span class="lang-ko">수령인 이름 *</span>
+                            <span class="lang-en">Recipient Name *</span>
+                        </label>
+                        <input type="text" id="name" required placeholder="เช่น นายสมชาย ใจดี">
+                    </div>
+                    <div class="form-group-row">
+                        <div class="form-group">
+                            <label for="tel">
+                                <span class="lang-th">เบอร์โทรศัพท์ *</span>
+                                <span class="lang-ko">전화번호 *</span>
+                                <span class="lang-en">Phone Number *</span>
+                            </label>
+                            <input type="tel" id="tel" required placeholder="08X-XXX-XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label for="quantity">
+                                <span class="lang-th">จำนวน (เล่ม) *</span>
+                                <span class="lang-ko">수량 (권) *</span>
+                                <span class="lang-en">Quantity (Books) *</span>
+                            </label>
+                            <input type="number" id="quantity" value="1" min="1" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">
+                            <span class="lang-th">ที่อยู่จัดส่งสินค้า *</span>
+                            <span class="lang-ko">배송 주소 *</span>
+                            <span class="lang-en">Shipping Address *</span>
+                        </label>
+                        <textarea id="address" rows="3" required placeholder="บ้านเลขที่, ถนน, ตำบล, อำเภอ, จังหวัด, รหัสไปรษณีย์"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="slip">
+                            <span class="lang-th">แนบสลิปการโอนเงิน *</span>
+                            <span class="lang-ko">송금 영수증 첨부 *</span>
+                            <span class="lang-en">Attach Payment Slip *</span>
+                        </label>
+                        <input type="file" id="slip" accept="image/*" required>
+                    </div>
+                    <button type="submit" class="btn btn-action-submit" id="submitBtn">
+                        <span class="lang-th">ยืนยันการสั่งซื้อ</span>
+                        <span class="lang-ko">주문 확인</span>
+                        <span class="lang-en">Confirm Order</span>
+                    </button>
+                </form>
+
+                <div class="order-summary">
+                    <h3>
+                        <span class="lang-th">สรุปรายการสั่งซื้อ</span>
+                        <span class="lang-ko">주문 요약</span>
+                        <span class="lang-en">Order Summary</span>
+                    </h3>
+                    <div class="summary-item">
+                        <span class="lang-th">โลกของนาฬิกาและสีของฤดู</span>
+                        <span class="lang-ko">시계의 세계와 계절의 색</span>
+                        <span class="lang-en">The World of Time Book</span>
+                        <span id="summary-book-price">790 ฿</span>
+                    </div>
+                    <div class="summary-item">
+                        <span class="lang-th">ค่าจัดส่ง </span>
+                        <span class="lang-ko">배송비 </span>
+                        <span class="lang-en">Shipping Fee </span>
+                            <span class="lang-th">ฟรี</span>
+                            <span class="lang-ko">무료 배송</span>
+                            <span class="lang-en">Free</span>
+                    </div>
+                    <hr>
+                    <div class="summary-total">
+                        <span class="lang-th">ยอดรวมทั้งหมด</span>
+                        <span class="lang-ko">총 금액</span>
+                        <span class="lang-en">Grand Total</span>
+                        <span id="summary-total-price">790 ฿</span>
+                    </div>
+
+                    <div class="payment-info">
+                        <h4><i class="fa-solid fa-university"></i> 
+                            <span class="lang-th">ช่องทางชำระเงิน</span>
+                            <span class="lang-ko">결제 수단</span>
+                            <span class="lang-en">Payment Methods</span>
+                        </h4>
+                        <p>
+                            <span class="lang-th">ธนาคารกสิกรไทย (K-Bank)</span>
+                            <span class="lang-ko">카시콘은행</span>
+                            <span class="lang-en">Kasikornban</span></p>
+                        <p class="account-number">000-0-00000-0</p>
+                        <p> 
+                            <span class="lang-th">ชื่อบัญชี: พิชามญชุ์</span>
+                            <span class="lang-ko">예금주: 피차몬</span>
+                            <span class="lang-en">Account Name: Pichamon</span>
+                        </p>
+                        
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            
+            // ==========================================
+            // 1. ระบบคำนวณราคาอัตโนมัติ
+            // ==========================================
+            const qtyInput = document.getElementById('quantity');
+            const bookPriceElem = document.getElementById('summary-book-price');
+            const totalPriceElem = document.getElementById('summary-total-price');
+
+            if(qtyInput) {
+                qtyInput.addEventListener('input', () => {
+                    let qty = parseInt(qtyInput.value) || 1;
+                    if(qty < 1) qty = 1;
+                    let bookTotal = qty * 790;
+                    let grandTotal = bookTotal + 0;
+                    bookPriceElem.innerText = `${bookTotal} บาท`;
+                    totalPriceElem.innerText = `${grandTotal} บาท`;
+                });
+            }
+
+            // ==========================================
+            // 2. ระบบเช็คภาพสลิปโอนเงินหน้าบ้านก่อนส่งข้อมูล
+            // ==========================================
+            const orderForm = document.getElementById('orderForm');
+            if(orderForm) {
+                orderForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const fileInput = document.getElementById('slip');
+                    const file = fileInput.files[0];
+                    
+                    if (!file) {
+                        alert("กรุณาแนบสลิปการโอนเงินด้วยครับ / Please attach a payment slip.");
+                        return;
+                    }
+
+                    // ตรวจจับประเภทไฟล์ว่าเป็นรูปสลิปจริงหรือไม่
+                    if (!file.type.match('image.*')) {
+                        alert("กรุณาเลือกไฟล์ที่เป็นรูปภาพสลิปเท่านั้นครับ / Image files only.");
+                        return;
+                    }
+
+                    // ตรวจสอบขนาดรูปสลิปไม่ให้เกิน 4MB ป้องกัน Google Apps Script ค้าง
+                    const fileSizeMB = file.size / (1024 * 1024);
+                    if (fileSizeMB > 4) {
+                        alert("ไฟล์รูปภาพมีขนาดใหญ่เกินไป (จำกัดไม่เกิน 4MB) กรุณาย่อรูปสลิปใหม่ครับ");
+                        return;
+                    }
+
+                    const submitBtn = document.getElementById('submitBtn');
+                    submitBtn.innerText = "กำลังอัพโหลดและส่งออเดอร์...";
+                    submitBtn.disabled = true;
+
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        sendData(event.target.result);
+                    };
+                    reader.readAsDataURL(file);
+                });
+            }
+
+            function sendData(base64Image) {
+                const scriptUrl = "https://script.google.com/macros/s/AKfycbz2blVG1twxFGxScYe1DuYId3OachvwmoDBM4yoqV89dpVJR53dCR2oOxEpg0XoAgzqPw/exec";
+                
+                const formData = new FormData();
+                formData.append("customer_name", document.getElementById('name').value);
+                formData.append("customer_phone", document.getElementById('tel').value);
+                formData.append("order_quantity", document.getElementById('quantity').value);
+                formData.append("shipping_address", document.getElementById('address').value);
+                formData.append("payment_slip", base64Image);
+
+                fetch(scriptUrl, {
+                    method: "POST",
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.result === "success") {
+                        // เปลี่ยนจาก alert ธรรมดา เป็นการบอกเลขคำสั่งซื้อ
+                        alert("สั่งซื้อสำเร็จ! หมายเลขคำสั่งซื้อของคุณคือ: " + data.order_id + "\nคุณสามารถนำเลขนี้ไปตรวจสอบสถานะได้ที่หน้า Tracking");
+                        
+                        // เคลียร์ฟอร์ม
+                        document.getElementById('orderForm').reset();
+                        
+                        // (ทางเลือก) ให้เด้งไปหน้า track ทันที
+                        // window.location.href = "track.html?id=" + data.order_id;
+                    } else {
+                        alert("เกิดข้อผิดพลาด: " + data.error);
+                    }
+                })
+                .catch(error => {
+                    alert("เกิดข้อผิดพลาดระบบขัดข้อง กรุณาลองใหม่อีกครั้ง");
+                    console.error(error);
+                })
+                .finally(() => {
+                    const submitBtn = document.getElementById('submitBtn');
+                    if(submitBtn) {
+                        submitBtn.innerText = "ยืนยันการสั่งซื้อ";
+                        submitBtn.disabled = false;
+                    }
+                });
+            }
+
+            // ==========================================
+            // 3. ระบบสลับธีมฤดูกาล + เอฟเฟกต์ (พระจันทร์ = ฤดูร้อน / พระอาทิตย์ = ฤดูหนาว)
+            // ==========================================
+            const themeToggleBtn = document.getElementById('themeToggle');
+            const themeIcon = document.getElementById('themeIcon');
+            const body = document.body;
+            let particleInterval = null;
+
+            function applyTheme(theme) {
+                if (theme === 'dark') {
+                    body.classList.add('dark-theme');
+                    if(themeIcon) {
+                        themeIcon.className = 'fa-solid fa-sun';
+                        themeIcon.style.color = '#f59e0b';
+                    }
+                    startFallingEffect('snow'); // เรียกใช้หิมะตกในฤดูหนาว
+                } else {
+                    body.classList.remove('dark-theme');
+                    if(themeIcon) {
+                        themeIcon.className = 'fa-solid fa-moon';
+                        themeIcon.style.color = '#94a3b8';
+                    }
+                    startFallingEffect('flower'); // เรียกใช้ดอกไม้ร่วงในฤดูร้อน
+                }
+                localStorage.setItem('selectedTheme', theme);
+            }
+
+            if(themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', function() {
+                    const currentTheme = body.classList.contains('dark-theme') ? 'light' : 'dark';
+                    applyTheme(currentTheme);
+                });
+            }
+            const savedTheme = localStorage.getItem('selectedTheme') || 'light';
+            applyTheme(savedTheme);
+
+            function startFallingEffect(type) {
+                if (particleInterval) clearInterval(particleInterval);
+                document.querySelectorAll('.falling-particle').forEach(el => el.remove());
+
+                const items = type === 'snow' ? ['❄', '✧', '•'] : [ '🍂'];
+                const colors = type === 'snow' ? ['#ffffff', '#e2e8f0', '#93c5fd'] : ['#f43f5e', '#fda4af', '#f472b6'];
+
+                particleInterval = setInterval(() => {
+                    const particle = document.createElement('div');
+                    particle.className = 'falling-particle';
+                    const startLeft = Math.random() * window.innerWidth;
+                    const duration = Math.random() * 4 + 4;
+                    const fontSize = Math.random() * 12 + 10;
+
+                    particle.innerText = items[Math.floor(Math.random() * items.length)];
+                    particle.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    particle.style.left = startLeft + 'px';
+                    particle.style.fontSize = fontSize + 'px';
+                    particle.style.animationDuration = duration + 's';
+
+                    document.body.appendChild(particle);
+                    setTimeout(() => { particle.remove(); }, duration * 1000);
+                }, 350);
+            }
+
+            // ==========================================
+            // 4. ระบบเปลี่ยนภาษา (Multi-language)
+            // ==========================================
+            const langOptions = document.querySelectorAll('.lang-option');
+
+            function changeLanguage(lang) {
+                localStorage.setItem('selectedLanguage', lang);
+                document.querySelectorAll('.lang-th, .lang-ko, .lang-en').forEach(el => {
+                    el.classList.add('lang-hidden');
+                });
+                document.querySelectorAll('.lang-' + lang).forEach(el => {
+                    el.classList.remove('lang-hidden');
+                });
+            }
+
+            langOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const selectedLang = this.getAttribute('data-lang');
+                    changeLanguage(selectedLang);
+                });
+            });
+            const savedLang = localStorage.getItem('selectedLanguage') || 'th';
+            changeLanguage(savedLang);
+        });
+    </script>
+</body>
+</html>
